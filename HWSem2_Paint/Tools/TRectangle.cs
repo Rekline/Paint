@@ -19,11 +19,11 @@ namespace HWSem2_Paint
         {
             if (StartPoint == null)
                 return;
+                
             Pen p = new Pen(ToolColor, ToolSize);
             p.StartCap = p.EndCap = LineCap.Round;
             g.SmoothingMode = SmoothingMode.HighQuality;
-
-
+            
             var coord = new Point(endPoint.X - StartPoint.Value.X, StartPoint.Value.Y - endPoint.Y);
             var p1X = coord.X > 0 ? StartPoint.Value.X : StartPoint.Value.X + coord.X;
             var p1Y = coord.Y > 0 ? StartPoint.Value.Y - coord.Y : StartPoint.Value.Y;
@@ -46,8 +46,6 @@ namespace HWSem2_Paint
                 }
                 else {
                 g.FillRectangle(b, p1X, p1Y, Math.Abs(coord.X), Math.Abs(coord.Y)); }
-
-
             }
         }
 
@@ -55,6 +53,7 @@ namespace HWSem2_Paint
         {
             Rectangle rect;
             var dP = new Point(endPoint.X - StartPoint.Value.X, endPoint.Y - StartPoint.Value.Y);
+            
                 if (dP.X > 0 && dP.Y > 0)
                     rect = new(StartPoint.Value.X, StartPoint.Value.Y, Math.Min(dP.X, dP.Y), Math.Min(dP.X, dP.Y));
                 else if (dP.X > 0 && dP.Y < 0)
