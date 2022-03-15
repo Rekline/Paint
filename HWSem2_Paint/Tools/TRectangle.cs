@@ -53,30 +53,32 @@ namespace HWSem2_Paint
         {
             Rectangle rect;
             var dP = new Point(endPoint.X - StartPoint.Value.X, endPoint.Y - StartPoint.Value.Y);
-            
-                if (dP.X > 0 && dP.Y > 0)
-                    rect = new(StartPoint.Value.X, StartPoint.Value.Y, Math.Min(dP.X, dP.Y), Math.Min(dP.X, dP.Y));
-                else if (dP.X > 0 && dP.Y < 0)
-                {
-                    var pX = StartPoint.Value.X;
-                    int pY = Math.Abs(dP.X) > Math.Abs(dP.Y) ? endPoint.Y : StartPoint.Value.Y - dP.X;
-                    var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
-                    rect = new(pX, pY, len, len);
-                }
-                else if (dP.X < 0 && dP.Y > 0)
-                {
-                    var pX = Math.Abs(dP.X) > Math.Abs(dP.Y) ? StartPoint.Value.X - dP.Y : endPoint.X;
-                    int pY = StartPoint.Value.Y;
-                    var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
-                    rect = new(pX, pY, len, len);
-                }
-                else
-                {
-                    var pX = Math.Abs(dP.X) > Math.Abs(dP.Y) ? StartPoint.Value.X - Math.Abs(dP.Y) : endPoint.X;
-                    int pY = Math.Abs(dP.X) > Math.Abs(dP.Y) ? endPoint.Y : StartPoint.Value.Y - Math.Abs(dP.X);
-                    var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
-                    rect = new(pX, pY, len, len);
-                }
+                
+            if (dP.X > 0 && dP.Y > 0)
+            {
+                rect = new(StartPoint.Value.X, StartPoint.Value.Y, Math.Min(dP.X, dP.Y), Math.Min(dP.X, dP.Y));
+            }
+            else if (dP.X > 0 && dP.Y < 0)
+            {
+                var pX = StartPoint.Value.X;
+                int pY = Math.Abs(dP.X) > Math.Abs(dP.Y) ? endPoint.Y : StartPoint.Value.Y - dP.X;
+                var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
+                rect = new(pX, pY, len, len);
+            }
+            else if (dP.X < 0 && dP.Y > 0)
+            {
+                var pX = Math.Abs(dP.X) > Math.Abs(dP.Y) ? StartPoint.Value.X - dP.Y : endPoint.X;
+                int pY = StartPoint.Value.Y;
+                var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
+                rect = new(pX, pY, len, len);
+            }
+            else
+            {
+                var pX = Math.Abs(dP.X) > Math.Abs(dP.Y) ? StartPoint.Value.X - Math.Abs(dP.Y) : endPoint.X;
+                int pY = Math.Abs(dP.X) > Math.Abs(dP.Y) ? endPoint.Y : StartPoint.Value.Y - Math.Abs(dP.X);
+                var len = Math.Min(Math.Abs(dP.X), Math.Abs(dP.Y));
+                rect = new(pX, pY, len, len);
+            }
             return rect;
         }
     }
