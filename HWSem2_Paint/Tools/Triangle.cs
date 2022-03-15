@@ -26,20 +26,6 @@ namespace HWSem2_Paint
             var p1 = new Point(StartPoint.Value.X, StartPoint.Value.Y);
             var p2 = new Point(endPoint.X, StartPoint.Value.Y);
             var p3 = new Point(endPoint.X, endPoint.Y);
-
-            //if (isShiftDown)
-            //{
-            //    var len = Math.Min(endPoint.X - StartPoint.Value.X,
-            //        endPoint.Y - StartPoint.Value.Y);
-            //    // Добавить разные плоскости
-            //    if ()
-            //    {
-
-            //    }
-            //    p2 = new(StartPoint.Value.X + len, StartPoint.Value.Y);
-            //    p3 = new(StartPoint.Value.X + len, StartPoint.Value.Y + len);
-            //}
-
             Point[] trianglePoints = new Point[]{p1, p2, p3};
 
             g.DrawPolygon(p, trianglePoints);
