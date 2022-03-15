@@ -37,7 +37,6 @@ namespace HWSem2_Paint
             {
                 imageSize = value;
                 imageSizeNow = value;
-                // поменять формат пикселей на что то с альфа
                 Image img = new Bitmap(imageSize.Width, imageSize.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
                 Graphics.FromImage(img).Clear(Color.White);
                 var imgGraphics = Graphics.FromImage(img);
